@@ -1,0 +1,109 @@
+/**
+*****************************************************************************************
+*     Copyright(c) 2017, Realtek Semiconductor Corporation. All rights reserved.
+*****************************************************************************************
+  * @file gui_switch.h
+  * @brief on or off status. Click to change.
+  * @details listen to on and off gesture
+  * @author triton_yu@realsil.com.cn
+  * @date 2023/11/8
+  * @version 1.0
+  ***************************************************************************************
+    * @attention
+  * <h2><center>&copy; COPYRIGHT 2017 Realtek Semiconductor Corporation</center></h2>
+  ***************************************************************************************
+  */
+
+/*============================================================================*
+ *               Define to prevent recursive inclusion
+ *============================================================================*/
+#ifndef __GUI_SWITCH_H__
+#define __GUI_SWITCH_H__
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/*============================================================================*
+ *                        Header Files
+ *============================================================================*/
+
+#include <guidef.h>
+#include <gui_fb.h>
+#include "gui_img.h"
+
+
+/*============================================================================*
+ *                         Types
+ *============================================================================*/
+
+typedef struct gui_switch gui_switch_t;
+struct gui_switch
+{
+    gui_obj_t base;
+    gui_img_t *switch_picture;
+    void *on_pic_addr;
+    void *off_pic_addr;
+    void *on_hl_pic_addr;
+    void *off_hl_pic_addr;
+    void *long_touch_state_pic_addr;
+    void *long_touch_state_hl_pic_addr;
+    bool ifon;
+    bool long_touch_state;
+    bool long_touch_enable;
+    bool press_flag;
+    bool long_flag;
+    bool release_flag;
+    void (*turn_off)(gui_switch_t *sw);
+    void (*turn_on)(gui_switch_t *sw);
+    void (*onOn)(gui_switch_t *this, void *cb, void *p);
+    void (*onOff)(gui_switch_t *this, void *cb, void *p);
+    void (*ctor)(gui_switch_t *this, gui_obj_t *parent,
+                 int16_t x,
+                 int16_t y, int16_t w, int16_t h, void *off_pic, void *on_pic);
+} ;
+
+
+/*============================================================================*
+ *                         Constants
+ *============================================================================*/
+
+
+/*============================================================================*
+ *                         Macros
+ *============================================================================*/
+
+
+/*============================================================================*
+ *                         Variables
+ *============================================================================*/
+
+
+/*============================================================================*
+ *                         Functions
+ *============================================================================*/
+
+/**
+ * @brief create a switch widget.
+ * @param parent the father widget it nested in.
+ * @param x the X-axis coordinate of the widget.
+ * @param y the Y-axis coordinate of the widget.
+ * @param w the width of the widget.
+ * @param h the hight of the widget.
+ * @param off_pic off status image.
+ * @param on_pic on status image.
+ * @return return the widget object pointer.
+ *
+ */
+gui_switch_t *gui_switch_create(void *parent, int16_t x, int16_t y,
+                                int16_t w, int16_t h, void *off_pic, void *on_pic);
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+
+
+

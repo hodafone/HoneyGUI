@@ -1,0 +1,15 @@
+# RT-Thread building script for GuiEngine demo
+
+from building import *
+
+cwd = GetCurrentDir()
+src = Split("""
+""")
+
+src += ['ezxml.c']
+
+CPPPATH = [cwd]
+
+group = DefineGroup('rtk_gui', src, depend = ['BUILD_USING_SCRIPT_AS_A_APP'], CPPPATH = CPPPATH)
+
+Return('group')

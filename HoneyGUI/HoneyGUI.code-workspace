@@ -1,0 +1,45 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"lvgl.h": "c",
+			"lv_port_disp.h": "c",
+			"lv_conf.h": "c",
+			"gui_cube.h": "c",
+			"lv_demo_widgets.h": "c",
+			"*.tcc": "c",
+			"fstream": "c",
+			"iosfwd": "c",
+			"istream": "c",
+			"limits": "c",
+			"sstream": "c",
+			"streambuf": "c",
+			"ui_resource.h": "c",
+			"guidef.h": "c",
+			"bitset": "c",
+			"deque": "c",
+			"string": "c",
+			"unordered_map": "c",
+			"vector": "c",
+			"optional": "c",
+			"future": "c",
+			"ios": "c",
+			"mutex": "c",
+			"ostream": "c",
+			"thread": "c",
+			"regex": "c",
+			"type_traits": "c",
+			"tuple": "c",
+			"gui_img.h": "c",
+			"gui_app.h": "c",
+			"hdf_multi_language.h": "c",
+			"hdf_module_global_data.h": "c",
+			"hdf_tool.h": "c",
+			"time.h": "c"
+		}
+	}
+}

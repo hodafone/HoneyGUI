@@ -1,0 +1,34 @@
+
+from building import *
+
+cwd = GetCurrentDir()
+src = Split("""
+""")
+
+
+src += [cwd + '/base/nanovg.c']
+src += [cwd + '/agge/math.cpp']
+src += [cwd + '/agge/stroke.cpp']
+src += [cwd + '/agge/stroke_features.cpp']
+src += [cwd + '/agge/vector_rasterizer.cpp']
+src += [cwd + '/agge/nanovg_agge.cpp']
+src += [cwd + '/agge/nanovg_vertex.cpp']
+
+if GetDepend(['USING_NANOVG_HW_VGLITE']):
+    src += [cwd + '/vglite/nanovg_vglite.c']
+    SrcRemove(src,cwd + '/agge/math.cpp')
+    SrcRemove(src,cwd + '/agge/stroke.cpp')
+    SrcRemove(src,cwd + '/agge/stroke_features.cpp')
+    SrcRemove(src,cwd + '/agge/vector_rasterizer.cpp')
+    SrcRemove(src,cwd + '/agge/nanovg_agge.cpp')
+    SrcRemove(src,cwd + '/agge/nanovg_vertex.cpp')
+
+path = [cwd,
+        cwd + '/agge', 
+        cwd + '/base', 
+        cwd + '/agge', 
+        cwd + '/vglite']
+
+group = DefineGroup('rtk_gui', src, depend = [''], CPPPATH = path)
+
+Return('group')
